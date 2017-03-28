@@ -59,3 +59,8 @@ readlink [path-to-link]
 # Option 2
 find [path-to-link] -ls
 ```
+
+### Enable Git SSL Verification
+```bash
+git config --global http.sslVerify true
+```

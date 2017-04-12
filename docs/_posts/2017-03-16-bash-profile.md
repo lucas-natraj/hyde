@@ -55,6 +55,36 @@ function dnxmon() {
     fi
 }
 
+# gomon
+function gomon() {
+    # Run go continuously with nodemon
+    # watching for changes to go files
+    # Usage:
+    #   gomon <directory> <command>
+    # gomon (applies the defaults: current directory and app.go)
+
+    function gomonFn() {
+        nodemon --ext "go" --exec "$1"
+    }
+
+    if [[ $# -eq 0 ]]
+    then
+        echo "running default ..."
+        echo "nodemon --ext "go" --exec "app.go""
+        gomonFn app.go
+    else
+        if [[ $# -eq 1 ]]
+        then
+            echo "nodemon --ext "go" --exec "$1""
+            gomonFn $1
+        else
+            printf "syntax:\n"
+            printf "  dnxmon             - will run dnxmon with 'web' as the default command\n"
+            printf "  dnxmon <command>   - will run dnxmon with the given command\n"
+        fi
+    fi
+}
+
 # pymon
 function pymon() {
     # Run python continuously with nodemon
@@ -122,7 +152,8 @@ function go-init() {
 
 function goog() {
     # go app engine
-    export PATH=$PATH:/Users/lnatraj/sdks/go_appengine    
+    # export PATH=$PATH:/Users/lnatraj/sdks/go_appengine
+    export PATH=$PATH:/Users/lnatraj/sdks/google-cloud-sdk/platform/google_appengine/goroot/bin
 
     # java app engine
     export PATH=$PATH:/Users/lnatraj/sdks/appengine-java-sdk-1.9.38/bin/
@@ -135,7 +166,7 @@ function goog() {
 
     # gradle appengine support
     export APPENGINE_HOME=/Users/lnatraj/sdks/appengine-java-sdk-1.9.38
-    export GCLOUD_HOME=/Users/lnatraj/google-cloud-sdk
+    export GCLOUD_HOME=/Users/lnatraj/sdks/google-cloud-sdk
 
     # kubernetes
     alias kub='kubectl'

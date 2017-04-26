@@ -24,6 +24,8 @@ alias ve=$(which virtualenv)
 
 # shell prompt
 PS1="\[\e[0;36m\]\w: \[\e[m\]"
+export CLICOLOR=1
+export LSCOLORS=cxgxdxdxfxegedabagacad
 
 # dnxmon
 function dnxmon() {

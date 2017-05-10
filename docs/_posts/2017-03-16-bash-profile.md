@@ -152,19 +152,32 @@ function go-init() {
     go-here
 }
 
+function ms() {
+    export PATH=$PATH:/Users/lnatraj/sdks/azure-cli
+    source '/Users/lnatraj/sdks/azure-cli/az.completion'
+}
+
 function goog() {
     # go app engine
-    # export PATH=$PATH:/Users/lnatraj/sdks/go_appengine
-    export PATH=$PATH:/Users/lnatraj/sdks/google-cloud-sdk/platform/google_appengine/goroot/bin
+    export PATH=$PATH:/Users/lnatraj/sdks/go_appengine
+    # export PATH=$PATH:/Users/lnatraj/sdks/google-cloud-sdk/platform/google_appengine
+    # export PATH=$PATH:/Users/lnatraj/sdks/google-cloud-sdk/platform/google_appengine/goroot/bin
+    # export GOROOT=/Users/lnatraj/sdks/google-cloud-sdk/platform/google_appengine/goroot
 
     # java app engine
     export PATH=$PATH:/Users/lnatraj/sdks/appengine-java-sdk-1.9.38/bin/
 
     # Update PATH for the Google Cloud SDK.
-    source '/Users/lnatraj/sdks/google-cloud-sdk/path.bash.inc'
+    # source '/Users/lnatraj/sdks/google-cloud-sdk/path.bash.inc'
 
     # Enable shell command completion for gcloud.
-    source '/Users/lnatraj/sdks/google-cloud-sdk/completion.bash.inc'
+    # source '/Users/lnatraj/sdks/google-cloud-sdk/completion.bash.inc'
+
+    # The next line updates PATH for the Google Cloud SDK.
+    if [ -f '/Users/lnatraj/sdks/google-cloud-sdk/path.bash.inc' ]; then source '/Users/lnatraj/sdks/google-cloud-sdk/path.bash.inc'; fi
+
+    # The next line enables shell command completion for gcloud.
+    if [ -f '/Users/lnatraj/sdks/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/lnatraj/sdks/google-cloud-sdk/completion.bash.inc'; fi
 
     # gradle appengine support
     export APPENGINE_HOME=/Users/lnatraj/sdks/appengine-java-sdk-1.9.38
@@ -183,12 +196,6 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
-# The next line updates PATH for the Google Cloud SDK.
-# source '/Users/lnatraj/google-cloud-sdk/path.bash.inc'
-
-# The next line enables shell command completion for gcloud.
-# source '/Users/lnatraj/google-cloud-sdk/completion.bash.inc'
-
 # java
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home
 
@@ -204,7 +211,5 @@ PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
 
 # grpc
 PATH="/Users/lnatraj/sdks/protoc-3-3/bin:${PATH}"
-
-export PATH
 
 ```

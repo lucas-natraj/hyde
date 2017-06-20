@@ -64,3 +64,11 @@ find [path-to-link] -ls
 ```bash
 git config --global http.sslVerify true
 ```
+
+### MD5
+```bash
+echo -n "me@gmail.com" | md5
+
+# gravatar
+https://www.gravatar.com/avatar/7cf012fb8fb67c8c8c3e81ba5e7e8d5a
+```

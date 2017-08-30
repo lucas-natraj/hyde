@@ -58,3 +58,15 @@ $ ssh-keygen -E md5 -lf ~/.ssh/example_rsa.pub
 ```
 $ ssh -o "StrictHostKeyChecking no" git@github.com
 ```
+
+## SSH config file
+```
+Host vsts
+    HostName slb1-swt.visualstudio.com
+    IdentityFile ~/.ssh/id_rsa
+    User git
+    Port 22
+
+Host *
+    UseKeychain yes
+```

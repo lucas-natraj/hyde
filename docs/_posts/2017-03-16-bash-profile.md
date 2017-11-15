@@ -212,4 +212,10 @@ PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
 # grpc
 PATH="/Users/lnatraj/sdks/protoc-3-3/bin:${PATH}"
 
+# rabbitmq
+PATH=$PATH:"/usr/local/sbin"
+
+# postgres
+export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
+
 ```

@@ -72,3 +72,9 @@ echo -n "me@gmail.com" | md5
 # gravatar
 https://www.gravatar.com/avatar/7cf012fb8fb67c8c8c3e81ba5e7e8d5a
 ```
+
+### Brew from Local Formula
+
+```bash
+brew install --build-from-source [path-to-rb]
+```
